@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu02hdu56mpsn"]
+
+[ext_resource type="Script" path="res://Menu.gd" id="1_37j0k"]
+[ext_resource type="PackedScene" uid="uid://b1leffpms1w63" path="res://rose.tscn" id="2_7vwnh"]
+
+[sub_resource type="GDScript" id="GDScript_rf6lf"]
+script/source = "extends Node
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="Main" type="Node"]
+script = SubResource("GDScript_rf6lf")
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 24.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_37j0k")
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu"]
+layout_mode = 0
+offset_left = -245.0
+offset_right = 42.0
+offset_bottom = 111.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Play" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="Quit" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="Rose" parent="." instance=ExtResource("2_7vwnh")]
+position = Vector2(994, 590)
+
+[node name="Rose2" parent="." instance=ExtResource("2_7vwnh")]
+position = Vector2(775, 447)
+
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Play" to="Menu" method="_on_play_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Quit" to="Menu" method="_on_quit_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Quit" to="Menu" method="_on_play_pressed"]
