@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://wpljbf28wo3q"]
+[gd_scene load_steps=9 format=3 uid="uid://wpljbf28wo3q"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_cqrka"]
 [ext_resource type="PackedScene" uid="uid://b1leffpms1w63" path="res://rose.tscn" id="1_w4hvn"]
 [ext_resource type="AudioStream" uid="uid://cy1csch6we3i6" path="res://sound/Karine_Gilanyan_-_Beethoven_-_Piano_Sonata_nr15_in_D_major_op28_Pastoral_-_II_Andante(chosic.com).mp3" id="2_qhkdq"]
 [ext_resource type="Script" path="res://Control.gd" id="4_oqfso"]
 [ext_resource type="Texture2D" uid="uid://dh5k0m3ff0pta" path="res://materials/heart.png" id="6_vl3pa"]
+[ext_resource type="PackedScene" uid="uid://bod6uhin8oalj" path="res://heartbar.tscn" id="7_df0x4"]
 [ext_resource type="AudioStream" uid="uid://idwgfuifvwdw" path="res://sound/436761__xpoki__no_normal.wav" id="7_ene6b"]
+[ext_resource type="PackedScene" uid="uid://dyt158hux0wyu" path="res://handscene.tscn" id="8_8drif"]
 
 [node name="level" type="Node"]
 script = ExtResource("1_cqrka")
@@ -32,6 +34,7 @@ offset_right = 44.0
 grow_vertical = 0
 scale = Vector2(2, 2)
 script = ExtResource("4_oqfso")
+metadata/_edit_group_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="UI"]
 layout_mode = 0
@@ -40,8 +43,8 @@ offset_right = 408.0
 offset_bottom = 23.0
 
 [node name="Heart" type="Sprite2D" parent="UI/MarginContainer"]
-position = Vector2(115, 59)
-scale = Vector2(1.17, 1.17)
+position = Vector2(27.5, 101.25)
+scale = Vector2(0.245, 0.2375)
 texture = ExtResource("6_vl3pa")
 
 [node name="VBoxContainer" type="HBoxContainer" parent="UI/MarginContainer"]
@@ -55,6 +58,12 @@ text = "100"
 layout_mode = 2
 text = "HP"
 
+[node name="heartbar" parent="." instance=ExtResource("7_df0x4")]
+
+[node name="handscene" parent="." instance=ExtResource("8_8drif")]
+position = Vector2(1265, 700)
+
+[connection signal="new_crush" from="." to="heartbar" method="_on_level_new_crush"]
 [connection signal="take_damage" from="." to="." method="_on_take_damage"]
 [connection signal="take_damage" from="." to="UI" method="_on_level_take_damage"]
 [connection signal="dropped" from="Rose" to="." method="_on_rose_dropped"]

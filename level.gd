@@ -7,6 +7,9 @@ var person = preload("res://person.tscn")
 var player_node = null
 @onready var viewport_size = get_viewport().size
 var heartbreaks_total
+
+
+signal new_crush
 signal take_damage
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,6 +20,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if Input.is_action_just_pressed("escape"):
+		get_tree().change_scene_to_file("res://main.tscn")
 	if player_node:
 		$UI.hp = player_node.get_hp()
 	pass
@@ -73,7 +78,7 @@ func spawn_player():
 	add_child( player_node )
 	heartbreaks_total = 1 + heartbreaks_total
 	player_node.increase_speed(heartbreaks_total)
-	
+	new_crush.emit()
 	$rejectsound.play()
 	
 	pass # Replace with function body.

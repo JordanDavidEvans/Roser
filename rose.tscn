@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1leffpms1w63"]
+[gd_scene load_steps=5 format=3 uid="uid://b1leffpms1w63"]
 
 [ext_resource type="Texture2D" uid="uid://cto1j8ku5lc5t" path="res://materials/rose.png" id="2_cjadv"]
+[ext_resource type="Script" path="res://rose.gd" id="2_jvpjk"]
 
 [sub_resource type="GDScript" id="GDScript_u4g3u"]
 script/source = "extends Node2D
@@ -42,11 +43,13 @@ radius = 46.0
 height = 152.0
 
 [node name="rose" type="Node2D"]
+z_index = 10
 script = SubResource("GDScript_u4g3u")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="rose" type="Sprite2D" parent="."]
 texture = ExtResource("2_cjadv")
+script = ExtResource("2_jvpjk")
 
 [node name="Area2D" type="Area2D" parent="."]
 

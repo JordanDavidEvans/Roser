@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://bod6uhin8oalj"]
+
+[ext_resource type="Script" path="res://heartbarlist.gd" id="1_aeih4"]
+[ext_resource type="PackedScene" uid="uid://u2cw3bncog6n" path="res://heart.tscn" id="2_k7kfx"]
+
+[sub_resource type="GDScript" id="GDScript_lqld0"]
+script/source = "extends Control
+signal create_new_heart
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func _on_level_new_crush():
+	create_new_heart.emit()
+	pass # Replace with function body.
+"
+
+[node name="heartbar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = SubResource("GDScript_lqld0")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="heartbarlist" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+columns = 5
+script = ExtResource("1_aeih4")
+
+[node name="heart" parent="MarginContainer/heartbarlist" instance=ExtResource("2_k7kfx")]
+layout_mode = 2
+
+[connection signal="create_new_heart" from="." to="MarginContainer/heartbarlist" method="_on_heartbar_create_new_heart"]

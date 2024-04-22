@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://u2cw3bncog6n"]
+
+[ext_resource type="Texture2D" uid="uid://bc4wwusaa8n3w" path="res://materials/brokenheart.png" id="1_y5617"]
+
+[node name="heart" type="TextureRect"]
+texture = ExtResource("1_y5617")
+stretch_mode = 1
