@@ -1,7 +1,7 @@
 extends RigidBody2DWrap
 
 var inside = false
-const STARTING_FORCE = 50
+var STARTING_FORCE
 signal is_inside
 
 func _physics_process(delta):
@@ -13,10 +13,12 @@ func _physics_process(delta):
 #		var angle = rad_to_deg(velocity.angle())  # Get the angle of the velocity vector
 #		rotation = deg_to_rad(angle + 90)  # Set the node's rotation to the velocity angle
 	
-
+func return_current_force():
+	return STARTING_FORCE
 
 
 func _ready():
+	STARTING_FORCE = 50
 	apply_impulse(Utility.RandomUnitVector2() * randf_range ( STARTING_FORCE/2.0, STARTING_FORCE*2.0))
 		
 

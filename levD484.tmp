@@ -16,7 +16,7 @@ stream = ExtResource("7_ene6b")
 metadata/_edit_group_ = true
 
 [node name="Rose" parent="." instance=ExtResource("1_w4hvn")]
-position = Vector2(634, 411)
+position = Vector2(876, 920)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_qhkdq")

@@ -42,7 +42,6 @@ radius = 46.0
 height = 152.0
 
 [node name="rose" type="Node2D"]
-position = Vector2(219, 143)
 script = SubResource("GDScript_u4g3u")
 metadata/_edit_group_ = true
 
@@ -52,6 +51,7 @@ texture = ExtResource("2_cjadv")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+z_index = 300
 position = Vector2(-3, 18)
 shape = SubResource("CapsuleShape2D_mdyw0")
 
