@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cu02hdu56mpsn"]
+[gd_scene load_steps=3 format=3 uid="uid://cu02hdu56mpsn"]
 
 [ext_resource type="Script" path="res://Menu.gd" id="1_37j0k"]
-[ext_resource type="PackedScene" uid="uid://b1leffpms1w63" path="res://rose.tscn" id="2_7vwnh"]
 
 [sub_resource type="GDScript" id="GDScript_rf6lf"]
 script/source = "extends Node
@@ -16,7 +15,7 @@ func _process(delta):
 	pass
 "
 
-[node name="Main" type="Node"]
+[node name="main" type="Node"]
 script = SubResource("GDScript_rf6lf")
 
 [node name="Menu" type="Control" parent="."]
@@ -52,12 +51,6 @@ text = "Play"
 layout_mode = 2
 text = "Quit"
 
-[node name="Rose" parent="." instance=ExtResource("2_7vwnh")]
-position = Vector2(994, 590)
-
-[node name="Rose2" parent="." instance=ExtResource("2_7vwnh")]
-position = Vector2(775, 447)
-
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Play" to="Menu" method="_on_play_pressed"]
-[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Quit" to="Menu" method="_on_quit_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Quit" to="Menu" method="_on_play_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Quit" to="Menu" method="_on_quit_pressed"]

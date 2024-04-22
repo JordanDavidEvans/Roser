@@ -7,6 +7,8 @@ script/source = "extends Node2D
 
 var selected = false
 var mouse_offset
+signal picked_up 
+signal dropped
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -27,9 +29,11 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 			# Mouse Held
 			mouse_offset = position - get_global_mouse_position()
 			selected = true
+			picked_up.emit()
 		else:
 			#released
 			selected = false
+			dropped.emit()
 
 "
 
