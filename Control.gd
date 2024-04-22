@@ -1,6 +1,6 @@
 extends Control
 signal rejected
-var hp = 100
+var hp
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
@@ -15,9 +15,11 @@ func _process(delta):
 
 
 func _on_level_take_damage():
-	hp -= 1
-	rejected.emit()
-	print(hp)
-	$MarginContainer/VBoxContainer/hpvalue.text = str(hp)
+
 	
+	pass # Replace with function body.
+
+
+func _on_person_hp_left(currenthealth):
+	$MarginContainer/VBoxContainer/hpvalue.text = str(currenthealth)
 	pass # Replace with function body.

@@ -55,6 +55,5 @@ text = "HP"
 [connection signal="dropped" from="Rose" to="." method="_on_rose_dropped"]
 [connection signal="picked_up" from="Rose" to="." method="_on_rose_picked_up"]
 [connection signal="rejected" from="Control" to="." method="_on_control_rejected"]
-[connection signal="death" from="Person" to="." method="_on_person_death"]
 [connection signal="hp_left" from="Person" to="." method="_on_person_hp_left"]
 [connection signal="hp_left" from="Person" to="Control" method="_on_person_hp_left"]
