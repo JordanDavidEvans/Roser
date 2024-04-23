@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dip7isd4tubby"
-path="res://.godot/imported/hand.png-7e9880ea327e997dbaf4a6623a00995c.ctex"
+uid="uid://d4mqgew3esot0"
+path="res://.godot/imported/chocbox.png-e1a7d794a0d678719340c76bf997a210.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://materials/hand.png"
-dest_files=["res://.godot/imported/hand.png-7e9880ea327e997dbaf4a6623a00995c.ctex"]
+source_file="res://materials/chocbox.png"
+dest_files=["res://.godot/imported/chocbox.png-e1a7d794a0d678719340c76bf997a210.ctex"]
 
 [params]
 

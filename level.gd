@@ -77,9 +77,12 @@ func spawn_player():
 
 	add_child( player_node )
 	heartbreaks_total = 1 + heartbreaks_total
+	$UI.set_rejections(heartbreaks_total)
 	player_node.increase_speed(heartbreaks_total)
 	new_crush.emit()
 	$rejectsound.play()
+	if heartbreaks_total > 20:
+		get_tree().change_scene_to_file("res://level_2.tscn")
 	
 	pass # Replace with function body.
 

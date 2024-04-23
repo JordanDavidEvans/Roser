@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cu02hdu56mpsn"]
+[gd_scene load_steps=8 format=3 uid="uid://cu02hdu56mpsn"]
 
 [ext_resource type="Script" path="res://Menu.gd" id="1_37j0k"]
+[ext_resource type="Script" path="res://warning.gd" id="2_kt8d1"]
 [ext_resource type="Texture2D" uid="uid://bg3pivj3p41aa" path="res://materials/Logo.png" id="2_otk05"]
 [ext_resource type="Script" path="res://Sprite2D.gd" id="3_e8dqc"]
 [ext_resource type="Texture2D" uid="uid://bpyneie452kh6" path="res://materials/backround.jpg" id="4_hrm3x"]
@@ -37,11 +38,19 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_37j0k")
 
+[node name="warning" type="Label" parent="Menu"]
+layout_mode = 2
+offset_left = -121.0
+offset_top = -76.0
+offset_right = 212.0
+offset_bottom = -53.0
+text = "this is my first game, i have no workflow :^)"
+script = ExtResource("2_kt8d1")
+
 [node name="MarginContainer" type="MarginContainer" parent="Menu"]
 layout_mode = 0
-offset_left = -245.0
-offset_right = 742.0
-offset_bottom = 243.0
+offset_right = 42.0
+offset_bottom = 66.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer"]
 layout_mode = 2
@@ -69,5 +78,5 @@ texture = ExtResource("4_hrm3x")
 script = ExtResource("5_d8tmu")
 
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Play" to="Menu" method="_on_play_pressed"]
-[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Quit" to="Menu" method="_on_quit_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Quit" to="Menu" method="_on_play_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Quit" to="Menu" method="_on_quit_pressed"]

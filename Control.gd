@@ -7,6 +7,8 @@ func _ready():
 	pass # Replace with function body.
 
 
+func set_rejections(total):
+	$rejections.text = str(total) + " rejections"
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$MarginContainer/VBoxContainer/hpvalue.text = str(hp)

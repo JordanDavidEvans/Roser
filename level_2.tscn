@@ -1,0 +1,85 @@
+[gd_scene load_steps=12 format=3 uid="uid://ciqnwu00db55s"]
+
+[ext_resource type="PackedScene" uid="uid://b1leffpms1w63" path="res://rose.tscn" id="1_3yqth"]
+[ext_resource type="Script" path="res://level_2.gd" id="1_buatf"]
+[ext_resource type="Texture2D" uid="uid://wwfm6bi30ipe" path="res://materials/storefront.png" id="2_mxr1r"]
+[ext_resource type="Script" path="res://workers.gd" id="2_rw0bp"]
+[ext_resource type="AudioStream" uid="uid://y62vsgfb7x4u" path="res://sound/547603__kaysonargyle__coin-splash.wav" id="3_qhbgg"]
+[ext_resource type="Texture2D" uid="uid://bc5kacq2m5l3l" path="res://materials/flowershop.jpg" id="3_vg33r"]
+[ext_resource type="Texture2D" path="res://materials/bundleofroses.png" id="6_muw5f"]
+[ext_resource type="Texture2D" uid="uid://re6pkuqjnc8a" path="res://materials/cash.png" id="7_bkyd5"]
+[ext_resource type="Texture2D" uid="uid://d4mqgew3esot0" path="res://materials/chocbox.png" id="9_3mo0n"]
+[ext_resource type="Script" path="res://box.gd" id="10_k1mk8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_clakx"]
+size = Vector2(254.156, 239.889)
+
+[node name="level2" type="Node"]
+script = ExtResource("1_buatf")
+
+[node name="rose" parent="." instance=ExtResource("1_3yqth")]
+position = Vector2(253, 562)
+
+[node name="workers" type="Node2D" parent="."]
+position = Vector2(-8, 1)
+script = ExtResource("2_rw0bp")
+
+[node name="cashsound" type="AudioStreamPlayer2D" parent="workers"]
+stream = ExtResource("3_qhbgg")
+
+[node name="worker" type="Sprite2D" parent="workers"]
+z_index = -1
+position = Vector2(660.75, 433.25)
+scale = Vector2(1.66813, 1.08083)
+texture = ExtResource("2_mxr1r")
+
+[node name="Area2D" type="Area2D" parent="workers/worker"]
+
+[node name="returnzone" type="CollisionShape2D" parent="workers/worker/Area2D"]
+position = Vector2(228.549, 92.2902)
+shape = SubResource("RectangleShape2D_clakx")
+
+[node name="bundleofroses" type="Sprite2D" parent="workers/worker"]
+position = Vector2(-258.823, 133)
+texture = ExtResource("6_muw5f")
+
+[node name="purchase" type="Button" parent="workers/worker"]
+offset_left = -84.3759
+offset_top = 78.412
+offset_right = 69.6241
+offset_bottom = 109.412
+scale = Vector2(1.51838, 3.17539)
+text = "buy rose chocolate"
+
+[node name="Label" type="Label" parent="workers/worker"]
+offset_left = 138.628
+offset_top = 17.3478
+offset_right = 197.628
+offset_bottom = 40.3478
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "$0 total"
+
+[node name="cash" type="Sprite2D" parent="workers/worker"]
+visible = false
+position = Vector2(-9.44171, 163.532)
+texture = ExtResource("7_bkyd5")
+
+[node name="backround" type="Sprite2D" parent="workers"]
+z_index = -2
+position = Vector2(679.25, 361.25)
+scale = Vector2(1.71438, 1.32083)
+texture = ExtResource("3_vg33r")
+
+[node name="box" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(635, 365)
+texture = ExtResource("9_3mo0n")
+script = ExtResource("10_k1mk8")
+
+[connection signal="expandbox" from="." to="box" method="_on_level_2_expandbox"]
+[connection signal="dropped" from="rose" to="rose" method="_on_dropped"]
+[connection signal="dropped" from="rose" to="workers" method="_on_rose_dropped"]
+[connection signal="returned" from="workers" to="." method="_on_workers_returned"]
+[connection signal="area_entered" from="workers/worker/Area2D" to="workers" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="workers/worker/Area2D" to="workers" method="_on_area_2d_area_exited"]
+[connection signal="pressed" from="workers/worker/purchase" to="." method="_on_purchase_pressed"]

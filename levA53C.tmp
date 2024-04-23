@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ciqnwu00db55s"]
+
+[ext_resource type="Script" path="res://roseimage.gd" id="1_of431"]
+
+[node name="level2" type="Node"]
+
+[node name="returnrose" type="Node2D" parent="."]
+
+[node name="roseimage" type="Sprite2D" parent="returnrose"]
+script = ExtResource("1_of431")
