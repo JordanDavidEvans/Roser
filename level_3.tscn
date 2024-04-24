@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3ys00dvp2icd"]
+
+[ext_resource type="Texture2D" uid="uid://dbyadbran1l30" path="res://materials/livingroom.jpg" id="1_bij6f"]
+[ext_resource type="Script" path="res://level_3.gd" id="1_otltq"]
+[ext_resource type="PackedScene" uid="uid://c8wriln71qchb" path="res://eater.tscn" id="2_r2h0l"]
+[ext_resource type="AudioStream" uid="uid://c1gnxrijx2ep6" path="res://sound/543386__thedragonsspark__nom-noise.wav" id="4_5v0uh"]
+
+[node name="level_3" type="Node"]
+script = ExtResource("1_otltq")
+
+[node name="livingroom" type="Sprite2D" parent="."]
+position = Vector2(642, 359.5)
+scale = Vector2(1.6175, 1.225)
+texture = ExtResource("1_bij6f")
+
+[node name="eater" parent="." instance=ExtResource("2_r2h0l")]
+position = Vector2(397, 0)
+
+[node name="chomp" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_5v0uh")

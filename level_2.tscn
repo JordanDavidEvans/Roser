@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://workers.gd" id="2_rw0bp"]
 [ext_resource type="AudioStream" uid="uid://y62vsgfb7x4u" path="res://sound/547603__kaysonargyle__coin-splash.wav" id="3_qhbgg"]
 [ext_resource type="Texture2D" uid="uid://bc5kacq2m5l3l" path="res://materials/flowershop.jpg" id="3_vg33r"]
-[ext_resource type="Texture2D" path="res://materials/bundleofroses.png" id="6_muw5f"]
+[ext_resource type="Texture2D" uid="uid://c7anbtebfdr70" path="res://materials/bundleofroses.png" id="6_muw5f"]
 [ext_resource type="Texture2D" uid="uid://re6pkuqjnc8a" path="res://materials/cash.png" id="7_bkyd5"]
 [ext_resource type="Texture2D" uid="uid://d4mqgew3esot0" path="res://materials/chocbox.png" id="9_3mo0n"]
 [ext_resource type="Script" path="res://box.gd" id="10_k1mk8"]

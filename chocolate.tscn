@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgnv1y1v5rctn"]
+
+[ext_resource type="Texture2D" uid="uid://dmdlpr4i6skci" path="res://materials/rosechoc.png" id="1_e1u0v"]
+[ext_resource type="Script" path="res://chocolate.gd" id="1_w8kr0"]
+[ext_resource type="Script" path="res://choc.gd" id="2_k747u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mf0u7"]
+radius = 109.073
+
+[node name="chocolate" type="Node2D"]
+script = ExtResource("1_w8kr0")
+
+[node name="physical" type="RigidBody2D" parent="."]
+gravity_scale = 0.0
+
+[node name="choc" type="Sprite2D" parent="physical"]
+texture = ExtResource("1_e1u0v")
+script = ExtResource("2_k747u")
+
+[node name="asdsadsad" type="Area2D" parent="physical"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="physical/asdsadsad"]
+shape = SubResource("CircleShape2D_mf0u7")
+
+[connection signal="body_entered" from="physical" to="." method="_on_physical_body_entered"]
+[connection signal="area_entered" from="physical/asdsadsad" to="." method="_on_asdsadsad_area_entered"]
+[connection signal="body_entered" from="physical/asdsadsad" to="." method="_on_asdsadsad_body_entered"]

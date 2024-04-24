@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8wriln71qchb"]
+
+[ext_resource type="Texture2D" uid="uid://cx3ahr6t30qm1" path="res://materials/eat1.png" id="1_0eyuw"]
+[ext_resource type="Script" path="res://eater.gd" id="1_s71mf"]
+[ext_resource type="Texture2D" uid="uid://bcvrlv44ch22r" path="res://materials/eat2.png" id="2_cg5y2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wjgw1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0eyuw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cg5y2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sf4ga"]
+radius = 64.0
+
+[node name="eater" type="Node2D"]
+script = ExtResource("1_s71mf")
+
+[node name="face" type="RigidBody2D" parent="."]
+input_pickable = true
+gravity_scale = 0.0
+
+[node name="mouth" type="AnimatedSprite2D" parent="face"]
+sprite_frames = SubResource("SpriteFrames_wjgw1")
+frame = 1
+frame_progress = 0.336152
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="face"]
+scale = Vector2(1.44, 1.44)
+shape = SubResource("CircleShape2D_sf4ga")
+
+[connection signal="body_entered" from="face" to="." method="_on_face_body_entered"]
+[connection signal="body_shape_entered" from="face" to="." method="_on_face_body_shape_entered"]
