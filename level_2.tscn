@@ -44,6 +44,7 @@ position = Vector2(-258.823, 133)
 texture = ExtResource("6_muw5f")
 
 [node name="purchase" type="Button" parent="workers/worker"]
+visible = false
 offset_left = -84.3759
 offset_top = 78.412
 offset_right = 69.6241
@@ -75,6 +76,15 @@ visible = false
 position = Vector2(635, 365)
 texture = ExtResource("9_3mo0n")
 script = ExtResource("10_k1mk8")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 208.0
+offset_top = 49.0
+offset_right = 364.0
+offset_bottom = 79.0
+scale = Vector2(6.80122, 5.37651)
+theme_override_colors/font_color = Color(0.913725, 0, 0.627451, 1)
+text = "return your roses"
 
 [connection signal="expandbox" from="." to="box" method="_on_level_2_expandbox"]
 [connection signal="dropped" from="rose" to="rose" method="_on_dropped"]

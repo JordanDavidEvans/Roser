@@ -11,8 +11,13 @@ func _process(delta):
 	pass
 
 
-
-
+func _enter_tree():
+	var ranvalue = randf() * 2
+	$physical/choc.scale.x = ranvalue
+	$physical/asdsadsad.scale.x = ranvalue
+	$physical/choc.scale.y = ranvalue
+	$physical/asdsadsad.scale.y = ranvalue
+	
 
 
 

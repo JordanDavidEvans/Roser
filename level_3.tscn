@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3ys00dvp2icd"]
+[gd_scene load_steps=6 format=3 uid="uid://d3ys00dvp2icd"]
 
 [ext_resource type="Texture2D" uid="uid://dbyadbran1l30" path="res://materials/livingroom.jpg" id="1_bij6f"]
 [ext_resource type="Script" path="res://level_3.gd" id="1_otltq"]
 [ext_resource type="PackedScene" uid="uid://c8wriln71qchb" path="res://eater.tscn" id="2_r2h0l"]
 [ext_resource type="AudioStream" uid="uid://c1gnxrijx2ep6" path="res://sound/543386__thedragonsspark__nom-noise.wav" id="4_5v0uh"]
+[ext_resource type="Script" path="res://calories.gd" id="5_0s4jt"]
 
 [node name="level_3" type="Node"]
 script = ExtResource("1_otltq")
@@ -18,3 +19,23 @@ position = Vector2(397, 0)
 
 [node name="chomp" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_5v0uh")
+
+[node name="calories" type="Label" parent="."]
+offset_left = 72.0
+offset_top = 72.0
+offset_right = 146.0
+offset_bottom = 95.0
+scale = Vector2(3, 3)
+text = "0 calories"
+script = ExtResource("5_0s4jt")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 672.0
+offset_top = 552.0
+offset_right = 952.0
+offset_bottom = 600.0
+scale = Vector2(2.18481, 2.09168)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "fill your heart with chocolate roses"
+
+[connection signal="fatty" from="eater" to="." method="_on_eater_fatty"]

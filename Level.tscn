@@ -34,6 +34,15 @@ offset_bottom = 40.0
 scale = Vector2(1.74109, 1.33791)
 texture = ExtResource("7_4luqr")
 
+[node name="Label" type="Label" parent="."]
+offset_left = 531.0
+offset_top = 29.0
+offset_right = 737.0
+offset_bottom = 60.0
+scale = Vector2(3.93896, 2.64956)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "put your heart out there"
+
 [connection signal="new_crush" from="." to="heartbar" method="_on_level_new_crush"]
 [connection signal="take_damage" from="." to="." method="_on_take_damage"]
 [connection signal="dropped" from="Rose" to="." method="_on_rose_dropped"]

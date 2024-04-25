@@ -1,0 +1,9 @@
+[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://xts3esde8y6w"]
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_sumxd"]
+resource_name = "Reverb"
+predelay_feedback = 0.0
+
+[resource]
+bus/0/effect/0/effect = SubResource("AudioEffectReverb_sumxd")
+bus/0/effect/0/enabled = true

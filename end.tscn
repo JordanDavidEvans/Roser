@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8276k3fi3en1"]
+
+[ext_resource type="Texture2D" uid="uid://bmbj11islnm6w" path="res://materials/end.png" id="1_3lm63"]
+[ext_resource type="Script" path="res://end.gd" id="1_xynv0"]
+
+[node name="end" type="Node"]
+script = ExtResource("1_xynv0")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(640, 359)
+scale = Vector2(1.77778, 0.802222)
+texture = ExtResource("1_3lm63")

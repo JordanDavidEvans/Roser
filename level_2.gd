@@ -34,4 +34,7 @@ func _on_workers_returned():
 func _on_purchase_pressed():
 	$box.visible = true
 	expandbox.emit()
+	await get_tree().create_timer(5).timeout
+	get_tree().change_scene_to_file("res://level_3.tscn")
 	pass # Replace with function body.
+	

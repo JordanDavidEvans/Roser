@@ -1,7 +1,7 @@
 extends Node2D
 var mouse_offset
 var selected = false
-
+signal fatty
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$face/mouth.play()
@@ -26,7 +26,13 @@ func _physics_process(delta):
 
 
 		
-
+func get_bigger():
+	$face/mouth.scale.x += 0.1
+	$face/mouth.scale.y += 0.1
+	$face/CollisionShape2D.scale.x += 0.1
+	$face/CollisionShape2D.scale.y += 0.1
+	if $face/mouth.scale.x > 5:
+		fatty.emit()
 
 
 
